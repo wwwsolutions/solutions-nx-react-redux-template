@@ -1,9 +1,14 @@
 {
   "npmScope": "edu",
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -12,11 +17,46 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
+      }
     }
   },
   "projects": {
-    "redux-app": { "tags": [] },
-    "redux-app-e2e": { "tags": [], "implicitDependencies": ["redux-app"] }
+    "redux-app": {
+      "tags": []
+    },
+    "redux-app-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "redux-app"
+      ]
+    },
+    "redux-app-state-store": {
+      "tags": []
+    },
+    "redux-app-state-reducers": {
+      "tags": []
+    },
+    "redux-app-state-action-creators": {
+      "tags": []
+    },
+    "redux-app-state-hooks": {
+      "tags": []
+    },
+    "redux-app-state-action-types": {
+      "tags": []
+    },
+    "redux-app-state-actions": {
+      "tags": []
+    },
+    "redux-app-components": {
+      "tags": []
+    }
   }
 }

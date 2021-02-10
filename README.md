@@ -39,20 +39,24 @@ Run `nx generate @nrwl/react:application --name=redux-app --style=none --globalC
 
 #### React libraries
 
-Run `nx g @nrwl/react:lib store --project=redux` to generate a new React library.
+Run `nx generate @nrwl/react:library --name=store --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/store --no-interactive` to generate a new React library.
 
-Run `nx g @nrwl/react:lib reducers --project=redux` to generate a new React library.
+Run `nx generate @nrwl/react:library --name=reducers --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/reducers --no-interactive` to generate a new React library.
 
-Run `nx g @nrwl/react:lib action-creators --project=redux` to generate a new React library.
+Run `nx generate @nrwl/react:library --name=action-creators --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/action-creators --no-interactive` to generate a new React library.
 
-Run `nx g @nrwl/react:lib hooks --project=redux` to generate a new React library.
+Run `nx generate @nrwl/react:library --name=hooks --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/hooks --no-interactive` to generate a new React library.
+
+Run `nx generate @nrwl/react:library --name=components --directory=redux-app --appProject=redux-app --no-component --importPath=@redux-app/components --no-interactive` to generate a new React library.
 
 #### Workspace libraries
 
-Run `nx g @nrwl/workspace:lib action-types --project=redux` to generate a new Workspace library.
+Run `nx generate @nrwl/workspace:library --name=action-types --directory=redux-app/state --importPath=@redux/action-types --unitTestRunner=none --no-interactive` to generate a new Workspace library.
+
+Run `nx generate @nrwl/workspace:library --name=actions --directory=redux-app/state --importPath=@redux/actions --unitTestRunner=none --no-interactive` to generate a new Workspace library.
 
 Run `nx g @nrwl/workspace:lib actions --project=redux` to generate a new Workspace library.
 
 ### Generating React components
 
-Run `nx g @nrwl/react:component demo-component --project=redux` to generate a new component.
+Run `nx generate @nrwl/react:component --name=demo --project=redux-app-components --directory=redux-app --export --globalCss --no-interactive` to generate a new component.

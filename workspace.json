@@ -100,6 +100,147 @@
           }
         }
       }
+    },
+    "redux-app-state-store": {
+      "root": "libs/redux-app/state/store",
+      "sourceRoot": "libs/redux-app/state/store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/redux-app/state/store/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/redux-app/state/store"],
+          "options": {
+            "jestConfig": "libs/redux-app/state/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "redux-app-state-reducers": {
+      "root": "libs/redux-app/state/reducers",
+      "sourceRoot": "libs/redux-app/state/reducers/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/redux-app/state/reducers/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/redux-app/state/reducers"],
+          "options": {
+            "jestConfig": "libs/redux-app/state/reducers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "redux-app-state-action-creators": {
+      "root": "libs/redux-app/state/action-creators",
+      "sourceRoot": "libs/redux-app/state/action-creators/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/redux-app/state/action-creators/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/redux-app/state/action-creators"],
+          "options": {
+            "jestConfig": "libs/redux-app/state/action-creators/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "redux-app-state-hooks": {
+      "root": "libs/redux-app/state/hooks",
+      "sourceRoot": "libs/redux-app/state/hooks/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/redux-app/state/hooks/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/redux-app/state/hooks"],
+          "options": {
+            "jestConfig": "libs/redux-app/state/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "redux-app-components": {
+      "root": "libs/redux-app/components",
+      "sourceRoot": "libs/redux-app/components/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/redux-app/components/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/redux-app/components"],
+          "options": {
+            "jestConfig": "libs/redux-app/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "redux-app-state-action-types": {
+      "root": "libs/redux-app/state/action-types",
+      "sourceRoot": "libs/redux-app/state/action-types/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/redux-app/state/action-types/**/*.ts"]
+          }
+        }
+      }
+    },
+    "redux-app-state-actions": {
+      "root": "libs/redux-app/state/actions",
+      "sourceRoot": "libs/redux-app/state/actions/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/redux-app/state/actions/**/*.ts"]
+          }
+        }
+      }
     }
   },
   "cli": {
