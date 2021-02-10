@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
@@ -7,16 +8,14 @@ import { RepositoriesAction } from '@redux/actions';
 // DEFINE ACTION CREATOR
 export const searchRepositories = (term: string) => {
   return async (dispatch: Dispatch<RepositoriesAction>): Promise<void> => {
-    // DISPATCH ACTION
     dispatch({
       type: RepositoriesActionType.SEARCH_REPOSITORIES,
     });
 
     try {
-      // REQUEST LOGIC
-      //-------------------------------------------------------------
+      // REQUEST LOGIC START -------------------------------------------------------------
 
-      // GET DATA
+      // get data from NPM api
       const { data } = await axios.get(
         'https://registry.npmjs.org/-/v1/search',
         {
@@ -26,19 +25,18 @@ export const searchRepositories = (term: string) => {
         }
       );
 
-      // EXTRACT ARRAY OF NAMES
-      const names: string[] = data.objects.map(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // extract array of package names
+      const packageNames: string[] = data.objects.map(
         (result: any): string => result.package.name
       );
 
-      // DISPATCH ACTION
+      // REQUEST LOGIC END -------------------------------------------------------------
+
       dispatch({
         type: RepositoriesActionType.SEARCH_REPOSITORIES_SUCCESS,
-        payload: names,
+        payload: packageNames,
       });
     } catch (err) {
-      // DISPATCH ACTION
       dispatch({
         type: RepositoriesActionType.SEARCH_REPOSITORIES_ERROR,
         payload: err.message,
