@@ -59,4 +59,4 @@ Run `nx g @nrwl/workspace:lib actions --project=redux` to generate a new Workspa
 
 ### Generating React components
 
-Run `nx generate @nrwl/react:component --name=demo --project=redux-app-components --directory=redux-app --export --globalCss --no-interactive` to generate a new component.
+Run `nx generate @nrwl/react:component --name=demo-list --project=redux-app-components --export --globalCss --no-interactive` to generate a new component.
