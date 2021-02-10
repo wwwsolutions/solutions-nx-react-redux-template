@@ -1,90 +1,62 @@
-# Edu
+# Redux sample architecture
 
-This project was generated using [Nx](https://nx.dev).
+Nx monorepo, Typescript, Redux, React
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
-
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+---
 
 ## Adding capabilities to your workspace
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+### Dependencies
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- [Redux](https://www.npmjs.com/package/redux)
+  - `npm install --save redux`
+- [React Redux](https://www.npmjs.com/package/react-redux)
+  - `npm install --save react-redux`
+- [Redux Thunk](https://www.npmjs.com/package/redux-thunk)
+  - `npm install --save redux-thunk`
+- [Axios](https://www.npmjs.com/package/axios)
+  - `npm install --save axios`
 
-Below are our core plugins:
+### Dev dependencies
 
-- [React](https://reactjs.org)
+- [React Plugin for Nx](https://www.npmjs.com/package/@nrwl/react)
   - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+- [Redux DevTools Extension](https://www.npmjs.com/package/redux-devtools-extension)
+  - `npm install --save-dev redux-devtools-extension`
+- [React Redux Type Definition](https://www.npmjs.com/package/@types/react-redux)
+  - `npm install --save-dev @types/react-redux`
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+---
 
-## Generate an application
+## Code scaffolding for a demo project named `'redux'`
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+### Generating file structure
 
-> You can use any of the plugins above to generate applications as well.
+Run `mkdir libs/redux-app && mkdir libs/redux-app/state` to tweak a monorepo file structure.
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+### Generating React application
 
-## Generate a library
+Run `nx g @nrwl/react:app redux-app --project=redux` to generate a new application.
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+### Generating libraries
 
-> You can also use any of the plugins above to generate libraries as well.
+#### React libraries
 
-Libraries are sharable across libraries and applications. They can be imported from `@edu/mylib`.
+Run `nx g @nrwl/react:lib store --project=redux` to generate a new React library.
 
-## Development server
+Run `nx g @nrwl/react:lib reducers --project=redux` to generate a new React library.
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `nx g @nrwl/react:lib action-creators --project=redux` to generate a new React library.
 
-## Code scaffolding
+Run `nx g @nrwl/react:lib hooks --project=redux` to generate a new React library.
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+#### Workspace libraries
 
-## Build
+Run `nx g @nrwl/workspace:lib action-types --project=redux` to generate a new Workspace library.
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `nx g @nrwl/workspace:lib actions --project=redux` to generate a new Workspace library.
 
-## Running unit tests
+### Generating React components
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+Run `nx g @nrwl/react:component demo-component --project=redux` to generate a new component.
 
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
