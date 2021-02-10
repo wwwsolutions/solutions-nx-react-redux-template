@@ -1,6 +1,10 @@
-# Redux sample architecture
+# Template project
 
-Nx monorepo, Typescript, React, Redux
+__**Redux Nx monorepo architecture**__
+
+`Nx monorepo, Typescript, React, Redux`
+
+---
 
 ## Adding capabilities to your workspace
 

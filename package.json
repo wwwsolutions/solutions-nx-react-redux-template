@@ -1,7 +1,8 @@
 {
-  "name": "solutions-nx-redux-sample",
+  "name": "solutions-nx-redux-template",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Domagoj-Mario Mendas <developer.domagoj.mendas@gmail.com> (https://github.com/wwwsolutions)",
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
@@ -25,7 +26,7 @@
     "help": "nx help",
     "workspace-generator": "nx workspace-generator"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
