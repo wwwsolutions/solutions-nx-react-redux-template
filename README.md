@@ -2,8 +2,6 @@
 
 Nx monorepo, Typescript, Redux, React
 
----
-
 ## Adding capabilities to your workspace
 
 ### Dependencies
@@ -26,9 +24,8 @@ Nx monorepo, Typescript, Redux, React
 - [React Redux Type Definition](https://www.npmjs.com/package/@types/react-redux)
   - `npm install --save-dev @types/react-redux`
 
----
 
-## Code scaffolding for a demo project named `'redux'`
+## Code scaffolding for a demo project `'redux'`
 
 ### Generating file structure
 
@@ -59,4 +56,3 @@ Run `nx g @nrwl/workspace:lib actions --project=redux` to generate a new Workspa
 ### Generating React components
 
 Run `nx g @nrwl/react:component demo-component --project=redux` to generate a new component.
-
