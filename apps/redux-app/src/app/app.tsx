@@ -1,9 +1,22 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-import { Route, Link } from 'react-router-dom';
+// STORE
+import { store } from '@redux/store';
 
-export function App() {
-  return <h1>Welcome to redux-app!</h1>;
-}
+// COMPONENTS
+import { DemoList } from '@redux-app/components';
+//..
+
+export const App = () => {
+  return (
+    <Provider store={store}>
+      <div>
+        <h1>Search For a Package</h1>
+        <DemoList />
+      </div>
+    </Provider>
+  );
+};
 
 export default App;

@@ -24,7 +24,6 @@ Nx monorepo, Typescript, React, Redux
 - [React Redux Type Definition](https://www.npmjs.com/package/@types/react-redux)
   - `npm install --save-dev @types/react-redux`
 
-
 ## Code scaffolding for a demo app `'redux-app'`
 
 ### Generating file structure
@@ -33,30 +32,69 @@ Run `mkdir libs/redux-app && mkdir libs/redux-app/state` to tweak a monorepo fil
 
 ### Generating React application
 
-Run `nx generate @nrwl/react:application --name=redux-app --style=none --globalCss --no-interactive` to generate a new application.
+**`./apps/redux-app`**
 
-### Generating corresponding libraries
+**`./apps/redux-app-e2e`**
 
-#### React libraries
 
-Run `nx generate @nrwl/react:library --name=store --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/store --no-interactive` to generate a new React library.
+```javascript
+nx generate @nrwl/react:application --name=redux-app --style=none --globalCss --no-interactive
+```
 
-Run `nx generate @nrwl/react:library --name=reducers --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/reducers --no-interactive` to generate a new React library.
+### Generating corresponding React libraries | state management libs
 
-Run `nx generate @nrwl/react:library --name=action-creators --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/action-creators --no-interactive` to generate a new React library.
+**`./libs/redux-app/state/store`**
 
-Run `nx generate @nrwl/react:library --name=hooks --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/hooks --no-interactive` to generate a new React library.
+```javascript
+nx generate @nrwl/react:library --name=store --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/store --no-interactive
+```
 
-Run `nx generate @nrwl/react:library --name=components --directory=redux-app --appProject=redux-app --no-component --importPath=@redux-app/components --no-interactive` to generate a new React library.
+**`./libs/redux-app/state/reducers`**
 
-#### Workspace libraries
+```javascript
+nx generate @nrwl/react:library --name=reducers --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/reducers --no-interactive
+```
 
-Run `nx generate @nrwl/workspace:library --name=action-types --directory=redux-app/state --importPath=@redux/action-types --unitTestRunner=none --no-interactive` to generate a new Workspace library.
+**`./libs/redux-app/state/action-creators`**
 
-Run `nx generate @nrwl/workspace:library --name=actions --directory=redux-app/state --importPath=@redux/actions --unitTestRunner=none --no-interactive` to generate a new Workspace library.
+```javascript
+nx generate @nrwl/react:library --name=action-creators --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/action-creators --no-interactive
+```
 
-Run `nx g @nrwl/workspace:lib actions --project=redux` to generate a new Workspace library.
+Run `` to generate a new React library.
+
+**`./libs/redux-app/state/hooks`**
+
+```javascript
+nx generate @nrwl/react:library --name=hooks --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/hooks --no-interactive
+```
+
+### Generating corresponding React libraries | application libs
+
+**`./libs/redux-app/components`**
+
+```javascript
+nx generate @nrwl/react:library --name=components --directory=redux-app --appProject=redux-app --no-component --importPath=@redux-app/components --no-interactive
+```
+
+### Generating corresponding workspace libraries | state management libs
+
+**`./libs/redux-app/store/action-types`**
+
+```javascript
+nx generate @nrwl/workspace:library --name=action-types --directory=redux-app/state --importPath=@redux/action-types --unitTestRunner=none --no-interactive
+```
+
+**`./libs/redux-app/store/actions`**
+
+```javascript
+nx generate @nrwl/workspace:library --name=actions --directory=redux-app/state --importPath=@redux/actions --unitTestRunner=none --no-interactive
+```
 
 ### Generating React components
 
-Run `nx generate @nrwl/react:component --name=demo-list --project=redux-app-components --export --globalCss --no-interactive` to generate a new component.
+**`./libs/redux-app/components/src/lib/demo-list`**
+
+```javascript
+nx generate @nrwl/react:component --name=demo-list --project=redux-app-components --export --globalCss --no-interactive
+```

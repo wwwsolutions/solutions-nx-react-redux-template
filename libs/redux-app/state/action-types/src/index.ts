@@ -1,1 +1,1 @@
-export * from './lib/redux-app-state-action-types';
+export * from './lib/repositories.action-type';
