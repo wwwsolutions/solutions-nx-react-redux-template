@@ -1,6 +1,6 @@
 # Redux sample architecture
 
-Nx monorepo, Typescript, Redux, React
+Nx monorepo, Typescript, React, Redux
 
 ## Adding capabilities to your workspace
 
@@ -25,7 +25,7 @@ Nx monorepo, Typescript, Redux, React
   - `npm install --save-dev @types/react-redux`
 
 
-## Code scaffolding for a demo project `'redux'`
+## Code scaffolding for a demo app `'redux-app'`
 
 ### Generating file structure
 
@@ -33,9 +33,9 @@ Run `mkdir libs/redux-app && mkdir libs/redux-app/state` to tweak a monorepo fil
 
 ### Generating React application
 
-Run `nx g @nrwl/react:app redux-app --project=redux` to generate a new application.
+Run `nx generate @nrwl/react:application --name=redux-app --style=none --globalCss --no-interactive` to generate a new application.
 
-### Generating libraries
+### Generating corresponding libraries
 
 #### React libraries
 
