@@ -30,22 +30,19 @@ __**Redux Nx monorepo architecture**__
 
 ## Code scaffolding for a demo app `'redux-app'`
 
-### Generating file structure
+### Generating folder structure
 
-Run `mkdir libs/redux-app && mkdir libs/redux-app/state` to tweak a monorepo file structure.
+Run `mkdir libs/redux-app && mkdir libs/redux-app/state` to create a directory named `store` to hold all state management relevant code.
 
 ### Generating React application
 
-**`./apps/redux-app`**
-
-**`./apps/redux-app-e2e`**
-
+**`./apps/redux-app`** & **`./apps/redux-app-e2e`**
 
 ```javascript
 nx generate @nrwl/react:application --name=redux-app --style=none --globalCss --no-interactive
 ```
 
-### Generating corresponding React libraries | state management libs
+### Generating corresponding state management libraries | React
 
 **`./libs/redux-app/state/store`**
 
@@ -73,7 +70,7 @@ Run `` to generate a new React library.
 nx generate @nrwl/react:library --name=hooks --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/hooks --no-interactive
 ```
 
-### Generating corresponding React libraries | application libs
+### Generating corresponding application libraries | React
 
 **`./libs/redux-app/components`**
 
@@ -81,7 +78,7 @@ nx generate @nrwl/react:library --name=hooks --directory=redux-app/state --appPr
 nx generate @nrwl/react:library --name=components --directory=redux-app --appProject=redux-app --no-component --importPath=@redux-app/components --no-interactive
 ```
 
-### Generating corresponding workspace libraries | state management libs
+### Generating corresponding state management libraries | Typescript
 
 **`./libs/redux-app/store/action-types`**
 

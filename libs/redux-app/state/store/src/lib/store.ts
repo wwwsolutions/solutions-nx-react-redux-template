@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { middleware } from './middleware';
-import { reducers } from './combine-reducers';
+import { reducers } from './reducers';
 
 // CREATE STORE
 export const store = createStore(

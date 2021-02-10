@@ -1,3 +1,3 @@
-import { reducers } from './combine-reducers';
+import { reducers } from './reducers';
 
 export type RootState = ReturnType<typeof reducers>;
