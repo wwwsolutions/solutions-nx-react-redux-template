@@ -10,12 +10,42 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@redux/store": [
+        "libs/redux-app/state/store/src/index.ts"
+      ],
+      "@redux/reducers": [
+        "libs/redux-app/state/reducers/src/index.ts"
+      ],
+      "@redux/action-creators": [
+        "libs/redux-app/state/action-creators/src/index.ts"
+      ],
+      "@redux/hooks": [
+        "libs/redux-app/state/hooks/src/index.ts"
+      ],
+      "@redux/action-types": [
+        "libs/redux-app/state/action-types/src/index.ts"
+      ],
+      "@redux/actions": [
+        "libs/redux-app/state/actions/src/index.ts"
+      ],
+      "@redux-app/components": [
+        "libs/redux-app/components/src/index.ts"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
