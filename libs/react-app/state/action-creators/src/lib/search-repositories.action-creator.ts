@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
@@ -27,6 +26,7 @@ export const searchRepositories = (term: string) => {
 
       // extract array of package names
       const packageNames: string[] = data.objects.map(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (result: any): string => result.package.name
       );
 

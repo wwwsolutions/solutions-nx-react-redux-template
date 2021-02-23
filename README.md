@@ -108,11 +108,9 @@ nx generate @nrwl/react:component --name=demo-list --project=react-app-component
 ](https://medium.com/showpad-engineering/how-to-programmatically-enforce-boundaries-between-applications-and-libraries-in-an-nx-monorepo-39bf8fbec6ba
 )
 
-So that following applies
+So that following applies:
 
-- Xxxxxxxxxxxxxxxxxxxxxx
-
-- YYYYYYYYYYYYYYYYYYY
+- `react-app` and corresponding components can consume - only publicly exposed parts of Redux store: `@redux/store`, `@redux/hooks`
 
 ### Configure `'nx.json'` file
 
@@ -122,64 +120,61 @@ Define boundaries/constraints using tags.
 "projects": {
   "react-app": {
     "tags": [
-      "scope:react",
-      "type:redux-store"
+      "scope:web",
+      "type:react-app",
+      "store:public"
     ]
   },
   "react-app-e2e": {
     "tags": [
-      "scope:react",
-      "type:redux-store"
-
+      "scope:web",
+      "type:react-app",
+      "store:public"
     ],
     "implicitDependencies": [
       "react-app"
     ]
   },
+  "react-app-components": {
+    "tags": [
+      "scope:web",
+      "type:react-app",
+      "store:public"
+    ]
+  },
   "react-app-state-store": {
     "tags": [
-      "scope:react",
-      "type:redux-store"
-    ]
-  },
-  "react-app-state-reducers": {
-    "tags": [
-      "scope:react",
-      "type:redux-store"
-    ]
-  },
-  "react-app-state-action-creators": {
-    "tags": [
-      "scope:react",
-      "type:redux-store"
+      "store:public",
+      "store:private"
     ]
   },
   "react-app-state-hooks": {
     "tags": [
-      "scope:react",
-      "type:redux-store"
+      "store:public",
+      "store:private"
+    ]
+  },
+  "react-app-state-action-creators": {
+    "tags": [
+      "store:private"
+    ]
+  },
+  "react-app-state-reducers": {
+    "tags": [
+      "store:private"
     ]
   },
   "react-app-state-action-types": {
     "tags": [
-      "scope:react",
-      "type:redux-store"
+      "store:private"
     ]
   },
   "react-app-state-actions": {
     "tags": [
-      "scope:react",
-      "type:redux-store"
-    ]
-  },
-  "react-app-components": {
-    "tags": [
-      "scope:react",
-      "type:redux-store"
+      "store:private"
     ]
   }
 }
-
 ```
 
 ### Configure `'.eslintrc.json'` file
@@ -189,16 +184,17 @@ Replace default configuration with:
 ```javascript
 "depConstraints": [
   {
-    "sourceTag": "scope:react",
+    "sourceTag": "type:react-app",
     "onlyDependOnLibsWithTags": [
-      "scope:react",
-      "type:redux-store"
+      "scope:web",
+      "type:react-app",
+      "store:public"
     ]
   },
   {
-    "sourceTag": "type:redux-store",
+    "sourceTag": "store:private",
     "onlyDependOnLibsWithTags": [
-      "type:redux-store"
+      "store:private"
     ]
   }
 ]

@@ -22,16 +22,17 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "scope:react",
+                "sourceTag": "type:react-app",
                 "onlyDependOnLibsWithTags": [
-                  "scope:react",
-                  "type:redux-store"
+                  "scope:web",
+                  "type:react-app",
+                  "store:public"
                 ]
               },
               {
-                "sourceTag": "type:redux-store",
+                "sourceTag": "store:private",
                 "onlyDependOnLibsWithTags": [
-                  "type:redux-store"
+                  "store:private"
                 ]
               }
             ]
