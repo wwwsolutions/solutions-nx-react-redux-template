@@ -1,10 +1,10 @@
 module.exports = {
   projects: [
-    '<rootDir>/apps/redux-app',
-    '<rootDir>/libs/redux-app/state/store',
-    '<rootDir>/libs/redux-app/state/reducers',
-    '<rootDir>/libs/redux-app/state/action-creators',
-    '<rootDir>/libs/redux-app/state/hooks',
-    '<rootDir>/libs/redux-app/components',
+    '<rootDir>/apps/react-app',
+    '<rootDir>/libs/react-app/state/store',
+    '<rootDir>/libs/react-app/state/reducers',
+    '<rootDir>/libs/react-app/state/action-creators',
+    '<rootDir>/libs/react-app/state/hooks',
+    '<rootDir>/libs/react-app/components',
   ],
 };

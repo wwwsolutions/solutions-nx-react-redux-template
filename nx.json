@@ -28,35 +28,62 @@
     }
   },
   "projects": {
-    "redux-app": {
-      "tags": []
-    },
-    "redux-app-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "redux-app"
+    "react-app": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
       ]
     },
-    "redux-app-state-store": {
-      "tags": []
+    "react-app-e2e": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ],
+      "implicitDependencies": [
+        "react-app"
+      ]
     },
-    "redux-app-state-reducers": {
-      "tags": []
+    "react-app-state-store": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
-    "redux-app-state-action-creators": {
-      "tags": []
+    "react-app-state-reducers": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
-    "redux-app-state-hooks": {
-      "tags": []
+    "react-app-state-action-creators": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
-    "redux-app-state-action-types": {
-      "tags": []
+    "react-app-state-hooks": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
-    "redux-app-state-actions": {
-      "tags": []
+    "react-app-state-action-types": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
-    "redux-app-components": {
-      "tags": []
+    "react-app-state-actions": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
+    },
+    "react-app-components": {
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     }
   }
 }

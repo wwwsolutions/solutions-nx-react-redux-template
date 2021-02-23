@@ -22,25 +22,25 @@
     "baseUrl": ".",
     "paths": {
       "@redux/store": [
-        "libs/redux-app/state/store/src/index.ts"
+        "libs/react-app/state/store/src/index.ts"
       ],
       "@redux/reducers": [
-        "libs/redux-app/state/reducers/src/index.ts"
+        "libs/react-app/state/reducers/src/index.ts"
       ],
       "@redux/action-creators": [
-        "libs/redux-app/state/action-creators/src/index.ts"
+        "libs/react-app/state/action-creators/src/index.ts"
       ],
       "@redux/hooks": [
-        "libs/redux-app/state/hooks/src/index.ts"
+        "libs/react-app/state/hooks/src/index.ts"
       ],
       "@redux/action-types": [
-        "libs/redux-app/state/action-types/src/index.ts"
+        "libs/react-app/state/action-types/src/index.ts"
       ],
       "@redux/actions": [
-        "libs/redux-app/state/actions/src/index.ts"
+        "libs/react-app/state/actions/src/index.ts"
       ],
-      "@redux-app/components": [
-        "libs/redux-app/components/src/index.ts"
+      "@react-app/components": [
+        "libs/react-app/components/src/index.ts"
       ]
     }
   },

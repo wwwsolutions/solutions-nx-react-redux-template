@@ -28,74 +28,178 @@ __**Redux Nx monorepo architecture**__
 - [React Redux Type Definition](https://www.npmjs.com/package/@types/react-redux)
   - `npm install --save-dev @types/react-redux`
 
-## Code scaffolding for a demo app `'redux-app'`
+## Code scaffolding for a demo app `'react-app'`
 
 ### Generating folder structure
 
-Run `mkdir libs/redux-app && mkdir libs/redux-app/state` to create a directory named `store` to hold all state management relevant code.
+Run `mkdir libs/react-app && mkdir libs/react-app/state` to create a directory named `store` to hold all state management relevant code.
 
 ### Generating React application
 
-**`./apps/redux-app`** & **`./apps/redux-app-e2e`**
+**`./apps/react-app`** & **`./apps/react-app-e2e`**
 
 ```javascript
-nx generate @nrwl/react:application --name=redux-app --style=none --globalCss --no-interactive
+nx generate @nrwl/react:application --name=react-app --style=none --globalCss --no-interactive
 ```
 
 ### Generating corresponding state management libraries | React
 
-**`./libs/redux-app/state/store`**
+**`./libs/react-app/state/store`**
 
 ```javascript
-nx generate @nrwl/react:library --name=store --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/store --no-interactive
+nx generate @nrwl/react:library --name=store --directory=react-app/state --appProject=react-app --no-component --importPath=@redux/store --no-interactive
 ```
 
-**`./libs/redux-app/state/reducers`**
+**`./libs/react-app/state/reducers`**
 
 ```javascript
-nx generate @nrwl/react:library --name=reducers --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/reducers --no-interactive
+nx generate @nrwl/react:library --name=reducers --directory=react-app/state --appProject=react-app --no-component --importPath=@redux/reducers --no-interactive
 ```
 
-**`./libs/redux-app/state/action-creators`**
+**`./libs/react-app/state/action-creators`**
 
 ```javascript
-nx generate @nrwl/react:library --name=action-creators --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/action-creators --no-interactive
+nx generate @nrwl/react:library --name=action-creators --directory=react-app/state --appProject=react-app --no-component --importPath=@redux/action-creators --no-interactive
 ```
 
 Run `` to generate a new React library.
 
-**`./libs/redux-app/state/hooks`**
+**`./libs/react-app/state/hooks`**
 
 ```javascript
-nx generate @nrwl/react:library --name=hooks --directory=redux-app/state --appProject=redux-app --no-component --importPath=@redux/hooks --no-interactive
+nx generate @nrwl/react:library --name=hooks --directory=react-app/state --appProject=react-app --no-component --importPath=@redux/hooks --no-interactive
 ```
 
 ### Generating corresponding application libraries | React
 
-**`./libs/redux-app/components`**
+**`./libs/react-app/components`**
 
 ```javascript
-nx generate @nrwl/react:library --name=components --directory=redux-app --appProject=redux-app --no-component --importPath=@redux-app/components --no-interactive
+nx generate @nrwl/react:library --name=components --directory=react-app --appProject=react-app --no-component --importPath=@react-app/components --no-interactive
 ```
 
 ### Generating corresponding state management libraries | Typescript
 
-**`./libs/redux-app/store/action-types`**
+**`./libs/react-app/store/action-types`**
 
 ```javascript
-nx generate @nrwl/workspace:library --name=action-types --directory=redux-app/state --importPath=@redux/action-types --unitTestRunner=none --no-interactive
+nx generate @nrwl/workspace:library --name=action-types --directory=react-app/state --importPath=@redux/action-types --unitTestRunner=none --no-interactive
 ```
 
-**`./libs/redux-app/store/actions`**
+**`./libs/react-app/store/actions`**
 
 ```javascript
-nx generate @nrwl/workspace:library --name=actions --directory=redux-app/state --importPath=@redux/actions --unitTestRunner=none --no-interactive
+nx generate @nrwl/workspace:library --name=actions --directory=react-app/state --importPath=@redux/actions --unitTestRunner=none --no-interactive
 ```
 
 ### Generating React components
 
-**`./libs/redux-app/components/src/lib/demo-list`**
+**`./libs/react-app/components/src/lib/demo-list`**
 
 ```javascript
-nx generate @nrwl/react:component --name=demo-list --project=redux-app-components --export --globalCss --no-interactive
+nx generate @nrwl/react:component --name=demo-list --project=react-app-components --export --globalCss --no-interactive
+```
+
+---
+
+## Enforce module boundaries
+
+[Programmatic code analysis
+](https://medium.com/showpad-engineering/how-to-programmatically-enforce-boundaries-between-applications-and-libraries-in-an-nx-monorepo-39bf8fbec6ba
+)
+
+So that following applies
+
+- Xxxxxxxxxxxxxxxxxxxxxx
+
+- YYYYYYYYYYYYYYYYYYY
+
+### Configure `'nx.json'` file
+
+Define boundaries/constraints using tags.
+
+```javascript
+"projects": {
+  "react-app": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-e2e": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+
+    ],
+    "implicitDependencies": [
+      "react-app"
+    ]
+  },
+  "react-app-state-store": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-reducers": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-action-creators": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-hooks": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-action-types": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-actions": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-components": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  }
+}
+
+```
+
+### Configure `'.eslintrc.json'` file
+
+Replace default configuration with:
+
+```javascript
+"depConstraints": [
+  {
+    "sourceTag": "scope:react",
+    "onlyDependOnLibsWithTags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  {
+    "sourceTag": "type:redux-store",
+    "onlyDependOnLibsWithTags": [
+      "type:redux-store"
+    ]
+  }
+]
 ```
