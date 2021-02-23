@@ -99,3 +99,107 @@ nx generate @nrwl/workspace:library --name=actions --directory=react-app/state -
 ```javascript
 nx generate @nrwl/react:component --name=demo-list --project=react-app-components --export --globalCss --no-interactive
 ```
+
+---
+
+## Enforce module boundaries
+
+[Programmatic code analysis
+](https://medium.com/showpad-engineering/how-to-programmatically-enforce-boundaries-between-applications-and-libraries-in-an-nx-monorepo-39bf8fbec6ba
+)
+
+So that following applies
+
+- Xxxxxxxxxxxxxxxxxxxxxx
+
+- YYYYYYYYYYYYYYYYYYY
+
+### Configure `'nx.json'` file
+
+Define boundaries/constraints using tags.
+
+```javascript
+"projects": {
+  "react-app": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-e2e": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+
+    ],
+    "implicitDependencies": [
+      "react-app"
+    ]
+  },
+  "react-app-state-store": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-reducers": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-action-creators": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-hooks": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-action-types": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-state-actions": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  "react-app-components": {
+    "tags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  }
+}
+
+```
+
+### Configure `'.eslintrc.json'` file
+
+Replace default configuration with:
+
+```javascript
+"depConstraints": [
+  {
+    "sourceTag": "scope:react",
+    "onlyDependOnLibsWithTags": [
+      "scope:react",
+      "type:redux-store"
+    ]
+  },
+  {
+    "sourceTag": "type:redux-store",
+    "onlyDependOnLibsWithTags": [
+      "type:redux-store"
+    ]
+  }
+]
+```

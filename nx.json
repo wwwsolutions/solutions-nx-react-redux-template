@@ -29,34 +29,61 @@
   },
   "projects": {
     "react-app": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-e2e": {
-      "tags": [],
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ],
       "implicitDependencies": [
         "react-app"
       ]
     },
     "react-app-state-store": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-state-reducers": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-state-action-creators": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-state-hooks": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-state-action-types": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-state-actions": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     },
     "react-app-components": {
-      "tags": []
+      "tags": [
+        "scope:react",
+        "type:redux-store"
+      ]
     }
   }
 }
