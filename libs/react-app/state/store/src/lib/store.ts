@@ -6,7 +6,7 @@ import { reducers } from './reducers';
 
 // CREATE STORE
 export const store = createStore(
-  reducers, // root reducer
+  reducers, // root reducer / combined reducers
   {}, // preloadedState
   composeWithDevTools(applyMiddleware(...middleware)) // middleware
 );

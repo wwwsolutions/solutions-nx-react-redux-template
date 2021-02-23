@@ -1,7 +1,7 @@
 import { RepositoriesActionType } from '@redux/action-types';
 import { RepositoriesAction } from '@redux/actions';
 
-interface _RepositoriesState {
+interface RepositoriesState {
   loading: boolean;
   error: string | null;
   data: string[];
@@ -15,9 +15,9 @@ const _initialRepositoriesState = {
 
 // DEFINE REDUCER
 export const repositoriesReducer = (
-  state: _RepositoriesState = _initialRepositoriesState,
+  state: RepositoriesState = _initialRepositoriesState,
   action: RepositoriesAction
-): _RepositoriesState => {
+): RepositoriesState => {
   switch (action.type) {
     case RepositoriesActionType.SEARCH_REPOSITORIES:
       return { loading: true, error: null, data: [] };
