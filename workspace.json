@@ -1,23 +1,25 @@
 {
   "version": 1,
   "projects": {
-    "redux-app": {
-      "root": "apps/redux-app",
-      "sourceRoot": "apps/redux-app/src",
+    "react-app": {
+      "root": "apps/react-app",
+      "sourceRoot": "apps/react-app/src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
-            "outputPath": "dist/apps/redux-app",
-            "index": "apps/redux-app/src/index.html",
-            "main": "apps/redux-app/src/main.tsx",
-            "polyfills": "apps/redux-app/src/polyfills.ts",
-            "tsConfig": "apps/redux-app/tsconfig.app.json",
+            "outputPath": "dist/apps/react-app",
+            "index": "apps/react-app/src/index.html",
+            "main": "apps/react-app/src/main.tsx",
+            "polyfills": "apps/react-app/src/polyfills.ts",
+            "tsConfig": "apps/react-app/tsconfig.app.json",
             "assets": [
-              "apps/redux-app/src/favicon.ico",
-              "apps/redux-app/src/assets"
+              "apps/react-app/src/favicon.ico",
+              "apps/react-app/src/assets"
             ],
             "styles": [],
             "scripts": [],
@@ -27,8 +29,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/redux-app/src/environments/environment.ts",
-                  "with": "apps/redux-app/src/environments/environment.prod.ts"
+                  "replace": "apps/react-app/src/environments/environment.ts",
+                  "with": "apps/react-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -51,193 +53,213 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "redux-app:build"
+            "buildTarget": "react-app:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "redux-app:build:production"
+              "buildTarget": "react-app:build:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/redux-app/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/react-app/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/redux-app"],
+          "outputs": [
+            "coverage/apps/react-app"
+          ],
           "options": {
-            "jestConfig": "apps/redux-app/jest.config.js",
+            "jestConfig": "apps/react-app/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "redux-app-e2e": {
-      "root": "apps/redux-app-e2e",
-      "sourceRoot": "apps/redux-app-e2e/src",
+    "react-app-e2e": {
+      "root": "apps/react-app-e2e",
+      "sourceRoot": "apps/react-app-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/redux-app-e2e/cypress.json",
-            "tsConfig": "apps/redux-app-e2e/tsconfig.e2e.json",
-            "devServerTarget": "redux-app:serve"
+            "cypressConfig": "apps/react-app-e2e/cypress.json",
+            "tsConfig": "apps/react-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "react-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "redux-app:serve:production"
+              "devServerTarget": "react-app:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/redux-app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/react-app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
     },
-    "redux-app-state-store": {
-      "root": "libs/redux-app/state/store",
-      "sourceRoot": "libs/redux-app/state/store/src",
+    "react-app-state-store": {
+      "root": "libs/react-app/state/store",
+      "sourceRoot": "libs/react-app/state/store/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/redux-app/state/store/**/*.{ts,tsx,js,jsx}"
+              "libs/react-app/state/store/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/redux-app/state/store"],
+          "outputs": [
+            "coverage/libs/react-app/state/store"
+          ],
           "options": {
-            "jestConfig": "libs/redux-app/state/store/jest.config.js",
+            "jestConfig": "libs/react-app/state/store/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "redux-app-state-reducers": {
-      "root": "libs/redux-app/state/reducers",
-      "sourceRoot": "libs/redux-app/state/reducers/src",
+    "react-app-state-reducers": {
+      "root": "libs/react-app/state/reducers",
+      "sourceRoot": "libs/react-app/state/reducers/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/redux-app/state/reducers/**/*.{ts,tsx,js,jsx}"
+              "libs/react-app/state/reducers/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/redux-app/state/reducers"],
+          "outputs": [
+            "coverage/libs/react-app/state/reducers"
+          ],
           "options": {
-            "jestConfig": "libs/redux-app/state/reducers/jest.config.js",
+            "jestConfig": "libs/react-app/state/reducers/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "redux-app-state-action-creators": {
-      "root": "libs/redux-app/state/action-creators",
-      "sourceRoot": "libs/redux-app/state/action-creators/src",
+    "react-app-state-action-creators": {
+      "root": "libs/react-app/state/action-creators",
+      "sourceRoot": "libs/react-app/state/action-creators/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/redux-app/state/action-creators/**/*.{ts,tsx,js,jsx}"
+              "libs/react-app/state/action-creators/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/redux-app/state/action-creators"],
+          "outputs": [
+            "coverage/libs/react-app/state/action-creators"
+          ],
           "options": {
-            "jestConfig": "libs/redux-app/state/action-creators/jest.config.js",
+            "jestConfig": "libs/react-app/state/action-creators/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "redux-app-state-hooks": {
-      "root": "libs/redux-app/state/hooks",
-      "sourceRoot": "libs/redux-app/state/hooks/src",
+    "react-app-state-hooks": {
+      "root": "libs/react-app/state/hooks",
+      "sourceRoot": "libs/react-app/state/hooks/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/redux-app/state/hooks/**/*.{ts,tsx,js,jsx}"
+              "libs/react-app/state/hooks/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/redux-app/state/hooks"],
+          "outputs": [
+            "coverage/libs/react-app/state/hooks"
+          ],
           "options": {
-            "jestConfig": "libs/redux-app/state/hooks/jest.config.js",
+            "jestConfig": "libs/react-app/state/hooks/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "redux-app-components": {
-      "root": "libs/redux-app/components",
-      "sourceRoot": "libs/redux-app/components/src",
+    "react-app-components": {
+      "root": "libs/react-app/components",
+      "sourceRoot": "libs/react-app/components/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/redux-app/components/**/*.{ts,tsx,js,jsx}"
+              "libs/react-app/components/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/redux-app/components"],
+          "outputs": [
+            "coverage/libs/react-app/components"
+          ],
           "options": {
-            "jestConfig": "libs/redux-app/components/jest.config.js",
+            "jestConfig": "libs/react-app/components/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "redux-app-state-action-types": {
-      "root": "libs/redux-app/state/action-types",
-      "sourceRoot": "libs/redux-app/state/action-types/src",
+    "react-app-state-action-types": {
+      "root": "libs/react-app/state/action-types",
+      "sourceRoot": "libs/react-app/state/action-types/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/redux-app/state/action-types/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/react-app/state/action-types/**/*.ts"
+            ]
           }
         }
       }
     },
-    "redux-app-state-actions": {
-      "root": "libs/redux-app/state/actions",
-      "sourceRoot": "libs/redux-app/state/actions/src",
+    "react-app-state-actions": {
+      "root": "libs/react-app/state/actions",
+      "sourceRoot": "libs/react-app/state/actions/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/redux-app/state/actions/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/react-app/state/actions/**/*.ts"
+            ]
           }
         }
       }
@@ -262,5 +284,5 @@
       }
     }
   },
-  "defaultProject": "redux-app"
+  "defaultProject": "react-app"
 }

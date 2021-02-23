@@ -28,34 +28,34 @@
     }
   },
   "projects": {
-    "redux-app": {
+    "react-app": {
       "tags": []
     },
-    "redux-app-e2e": {
+    "react-app-e2e": {
       "tags": [],
       "implicitDependencies": [
-        "redux-app"
+        "react-app"
       ]
     },
-    "redux-app-state-store": {
+    "react-app-state-store": {
       "tags": []
     },
-    "redux-app-state-reducers": {
+    "react-app-state-reducers": {
       "tags": []
     },
-    "redux-app-state-action-creators": {
+    "react-app-state-action-creators": {
       "tags": []
     },
-    "redux-app-state-hooks": {
+    "react-app-state-hooks": {
       "tags": []
     },
-    "redux-app-state-action-types": {
+    "react-app-state-action-types": {
       "tags": []
     },
-    "redux-app-state-actions": {
+    "react-app-state-actions": {
       "tags": []
     },
-    "redux-app-components": {
+    "react-app-components": {
       "tags": []
     }
   }
