@@ -7,7 +7,7 @@ interface RepositoriesState {
   data: string[];
 }
 
-const _initialRepositoriesState = {
+const initialRepositoriesState = {
   loading: false,
   error: null,
   data: [],
@@ -15,7 +15,7 @@ const _initialRepositoriesState = {
 
 // DEFINE REDUCER
 export const repositoriesReducer = (
-  state: RepositoriesState = _initialRepositoriesState,
+  state: RepositoriesState = initialRepositoriesState,
   action: RepositoriesAction
 ): RepositoriesState => {
   switch (action.type) {
