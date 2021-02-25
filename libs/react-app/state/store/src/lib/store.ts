@@ -3,10 +3,18 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { middleware } from './middleware';
 import { reducers } from './reducers';
+import { actionCreators } from './action-creators';
+
+// CONFIGURE DEVTOOLS
+const composeEnhancers = composeWithDevTools({
+  actionCreators,
+  trace: true,
+  traceLimit: 25,
+});
 
 // CREATE STORE
 export const store = createStore(
-  reducers, // root reducer / combined reducers
+  reducers, // root reducer
   {}, // preloadedState
-  composeWithDevTools(applyMiddleware(...middleware)) // middleware
+  composeEnhancers(applyMiddleware(...middleware))
 );
