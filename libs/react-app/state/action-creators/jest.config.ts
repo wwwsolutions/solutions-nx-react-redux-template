@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'react-app-state-reducers',
-  preset: '../../../../jest.preset.js',
+  displayName: 'react-app-state-action-creators',
+
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
@@ -8,5 +8,7 @@ module.exports = {
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/react-app/state/reducers',
+  coverageDirectory:
+    '../../../../coverage/libs/react-app/state/action-creators',
+  preset: '../../../../jest.preset.ts',
 };
