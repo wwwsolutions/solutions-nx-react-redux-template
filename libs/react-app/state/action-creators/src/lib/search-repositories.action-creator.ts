@@ -15,7 +15,7 @@ export const searchRepositories = (term: string) => {
       // REQUEST LOGIC START -------------------------------------------------------------
 
       // get data from NPM api
-      const { data } = await axios.get(
+      const { data } = await axios.get( 
         'https://registry.npmjs.org/-/v1/search',
         {
           params: {
