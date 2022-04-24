@@ -10,42 +10,22 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@redux/store": [
-        "libs/react-app/state/store/src/index.ts"
-      ],
-      "@redux/reducers": [
-        "libs/react-app/state/reducers/src/index.ts"
-      ],
+      "@react-app/components": ["libs/react-app/components/src/index.ts"],
       "@redux/action-creators": [
         "libs/react-app/state/action-creators/src/index.ts"
       ],
-      "@redux/hooks": [
-        "libs/react-app/state/hooks/src/index.ts"
-      ],
-      "@redux/action-types": [
-        "libs/react-app/state/action-types/src/index.ts"
-      ],
-      "@redux/actions": [
-        "libs/react-app/state/actions/src/index.ts"
-      ],
-      "@react-app/components": [
-        "libs/react-app/components/src/index.ts"
-      ]
+      "@redux/action-types": ["libs/react-app/state/action-types/src/index.ts"],
+      "@redux/actions": ["libs/react-app/state/actions/src/index.ts"],
+      "@redux/hooks": ["libs/react-app/state/hooks/src/index.ts"],
+      "@redux/reducers": ["libs/react-app/state/reducers/src/index.ts"],
+      "@redux/store": ["libs/react-app/state/store/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

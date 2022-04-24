@@ -1,13 +1,14 @@
 module.exports = {
-  displayName: 'react-app-state-action-creators',
-  preset: '../../../../jest.preset.js',
+  displayName: 'react-app',
+
   transform: {
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
     '^.+\\.[tj]sx?$': [
       'babel-jest',
       { cwd: __dirname, configFile: './babel-jest.config.json' },
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory:
-    '../../../../coverage/libs/react-app/state/action-creators',
+  coverageDirectory: '../../coverage/apps/react-app',
+  preset: '../../jest.preset.ts',
 };

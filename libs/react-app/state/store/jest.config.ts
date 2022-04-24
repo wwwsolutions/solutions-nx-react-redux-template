@@ -1,13 +1,13 @@
 module.exports = {
-  displayName: 'react-app',
-  preset: '../../jest.preset.js',
+  displayName: 'react-app-state-store',
+
   transform: {
-    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
     '^.+\\.[tj]sx?$': [
       'babel-jest',
       { cwd: __dirname, configFile: './babel-jest.config.json' },
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/react-app',
+  coverageDirectory: '../../../../coverage/libs/react-app/state/store',
+  preset: '../../../../jest.preset.ts',
 };

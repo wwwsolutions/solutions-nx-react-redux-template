@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'react-app-state-hooks',
-  preset: '../../../../jest.preset.js',
+  displayName: 'react-app-state-reducers',
+
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
@@ -8,5 +8,6 @@ module.exports = {
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/react-app/state/hooks',
+  coverageDirectory: '../../../../coverage/libs/react-app/state/reducers',
+  preset: '../../../../jest.preset.ts',
 };
