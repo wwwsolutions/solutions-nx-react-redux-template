@@ -16,73 +16,44 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": [
           "build",
           "lint",
           "test",
           "e2e"
-        ]
+        ],
+        "parallel": 3
       }
     }
   },
-  "projects": {
-    "react-app": {
-      "tags": [
-        "scope:web",
-        "type:react-app",
-        "store:public"
-      ]
-    },
-    "react-app-e2e": {
-      "tags": [
-        "scope:web",
-        "type:react-app",
-        "store:public"
-      ],
-      "implicitDependencies": [
-        "react-app"
-      ]
-    },
-    "react-app-components": {
-      "tags": [
-        "scope:web",
-        "type:react-app",
-        "store:public"
-      ]
-    },
-    "react-app-state-store": {
-      "tags": [
-        "store:public",
-        "store:private"
-      ]
-    },
-    "react-app-state-hooks": {
-      "tags": [
-        "store:public",
-        "store:private"
-      ]
-    },
-    "react-app-state-action-creators": {
-      "tags": [
-        "store:private"
-      ]
-    },
-    "react-app-state-reducers": {
-      "tags": [
-        "store:private"
-      ]
-    },
-    "react-app-state-action-types": {
-      "tags": [
-        "store:private"
-      ]
-    },
-    "react-app-state-actions": {
-      "tags": [
-        "store:private"
-      ]
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "defaultProject": "react-app",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "none",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "none"
+      },
+      "library": {
+        "style": "none",
+        "linter": "eslint"
+      }
     }
   }
 }

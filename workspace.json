@@ -7,7 +7,7 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@nrwl/web:build",
+          "builder": "@nrwl/web:webpack",
           "outputs": [
             "{options.outputPath}"
           ],
@@ -67,7 +67,10 @@
             "lintFilePatterns": [
               "apps/react-app/**/*.{ts,tsx,js,jsx}"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -79,7 +82,45 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [
+        "scope:web",
+        "type:react-app",
+        "store:public"
+      ]
+    },
+    "react-app-components": {
+      "root": "libs/react-app/components",
+      "sourceRoot": "libs/react-app/components/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react-app/components/**/*.{ts,tsx,js,jsx}"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react-app/components"
+          ],
+          "options": {
+            "jestConfig": "libs/react-app/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "scope:web",
+        "type:react-app",
+        "store:public"
+      ]
     },
     "react-app-e2e": {
       "root": "apps/react-app-e2e",
@@ -105,59 +146,20 @@
             "lintFilePatterns": [
               "apps/react-app-e2e/**/*.{js,ts}"
             ]
-          }
-        }
-      }
-    },
-    "react-app-state-store": {
-      "root": "libs/react-app/state/store",
-      "sourceRoot": "libs/react-app/state/store/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/react-app/state/store/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
+          },
           "outputs": [
-            "coverage/libs/react-app/state/store"
-          ],
-          "options": {
-            "jestConfig": "libs/react-app/state/store/jest.config.js",
-            "passWithNoTests": true
-          }
+            "{options.outputFile}"
+          ]
         }
-      }
-    },
-    "react-app-state-reducers": {
-      "root": "libs/react-app/state/reducers",
-      "sourceRoot": "libs/react-app/state/reducers/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/react-app/state/reducers/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/react-app/state/reducers"
-          ],
-          "options": {
-            "jestConfig": "libs/react-app/state/reducers/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
+      },
+      "tags": [
+        "scope:web",
+        "type:react-app",
+        "store:public"
+      ],
+      "implicitDependencies": [
+        "react-app"
+      ]
     },
     "react-app-state-action-creators": {
       "root": "libs/react-app/state/action-creators",
@@ -170,7 +172,10 @@
             "lintFilePatterns": [
               "libs/react-app/state/action-creators/**/*.{ts,tsx,js,jsx}"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -182,57 +187,10 @@
             "passWithNoTests": true
           }
         }
-      }
-    },
-    "react-app-state-hooks": {
-      "root": "libs/react-app/state/hooks",
-      "sourceRoot": "libs/react-app/state/hooks/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/react-app/state/hooks/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/react-app/state/hooks"
-          ],
-          "options": {
-            "jestConfig": "libs/react-app/state/hooks/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "react-app-components": {
-      "root": "libs/react-app/components",
-      "sourceRoot": "libs/react-app/components/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/react-app/components/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/react-app/components"
-          ],
-          "options": {
-            "jestConfig": "libs/react-app/components/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
+      },
+      "tags": [
+        "store:private"
+      ]
     },
     "react-app-state-action-types": {
       "root": "libs/react-app/state/action-types",
@@ -245,9 +203,15 @@
             "lintFilePatterns": [
               "libs/react-app/state/action-types/**/*.ts"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
-      }
+      },
+      "tags": [
+        "store:private"
+      ]
     },
     "react-app-state-actions": {
       "root": "libs/react-app/state/actions",
@@ -260,29 +224,110 @@
             "lintFilePatterns": [
               "libs/react-app/state/actions/**/*.ts"
             ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "store:private"
+      ]
+    },
+    "react-app-state-hooks": {
+      "root": "libs/react-app/state/hooks",
+      "sourceRoot": "libs/react-app/state/hooks/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react-app/state/hooks/**/*.{ts,tsx,js,jsx}"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react-app/state/hooks"
+          ],
+          "options": {
+            "jestConfig": "libs/react-app/state/hooks/jest.config.js",
+            "passWithNoTests": true
           }
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "schematics": {
-    "@nrwl/react": {
-      "application": {
-        "style": "none",
-        "linter": "eslint",
-        "babel": true
       },
-      "component": {
-        "style": "none"
+      "tags": [
+        "store:public",
+        "store:private"
+      ]
+    },
+    "react-app-state-reducers": {
+      "root": "libs/react-app/state/reducers",
+      "sourceRoot": "libs/react-app/state/reducers/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react-app/state/reducers/**/*.{ts,tsx,js,jsx}"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react-app/state/reducers"
+          ],
+          "options": {
+            "jestConfig": "libs/react-app/state/reducers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
       },
-      "library": {
-        "style": "none",
-        "linter": "eslint"
-      }
+      "tags": [
+        "store:private"
+      ]
+    },
+    "react-app-state-store": {
+      "root": "libs/react-app/state/store",
+      "sourceRoot": "libs/react-app/state/store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react-app/state/store/**/*.{ts,tsx,js,jsx}"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react-app/state/store"
+          ],
+          "options": {
+            "jestConfig": "libs/react-app/state/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "store:public",
+        "store:private"
+      ]
     }
-  },
-  "defaultProject": "react-app"
+  }
 }
