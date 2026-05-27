@@ -199,4 +199,3 @@ Replace default configuration with:
   }
 ]
 
----
