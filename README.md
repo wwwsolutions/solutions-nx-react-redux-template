@@ -199,5 +199,4 @@ Replace default configuration with:
   }
 ]
 
----
 
